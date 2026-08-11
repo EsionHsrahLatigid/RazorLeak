@@ -39,6 +39,10 @@ cmake --build --preset plugin-release --parallel
 ctest --preset plugin-release --output-on-failure
 ```
 
+## Artifact Layout
+
+`cmake --build --preset plugin-release` stages human-facing products under `artifacts/plugin-release/<platform-arch>/{standalone,vst3,au}`. macOS CI uses `macos-arm64`; Windows uses `windows-x64` without AU. `build/` remains CMake's internal workspace, and `ARTIFACTS.txt` describes each staged set.
+
 ## CI And Releases
 
 - Pull requests and `main` pushes run a classifier first. Documentation-only changes skip the paid macOS and Windows build jobs while the stable `CI Summary` check still reports the required result.

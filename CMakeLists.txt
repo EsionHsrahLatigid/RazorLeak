@@ -148,6 +148,15 @@ if(RAZORLEAK_BUILD_PLUGIN)
     target_sources(razorleak_standalone_plugin PRIVATE
         source/razorleak/RazorLeakAuditionBridge.cpp)
 
+    include(cmake/EhlYupArtifactLayout.cmake)
+    ehl_yup_add_artifact_target(
+        TARGET ehl_stage_products
+        PRODUCT RazorLeak
+        SLUG razorleak
+        STANDALONE_TARGET razorleak_standalone_plugin
+        VST3_TARGET razorleak_vst3_plugin
+        AU_TARGET razorleak_au_plugin)
+
     if(APPLE AND RAZORLEAK_ADHOC_SIGN)
         find_program(RAZORLEAK_CODESIGN_EXECUTABLE codesign REQUIRED)
         add_custom_command(TARGET razorleak_vst3_plugin POST_BUILD
