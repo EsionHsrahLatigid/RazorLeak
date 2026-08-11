@@ -4,8 +4,8 @@ RazorLeak v0.1.0 is an independent YUP stereo effect by 2bit. It is a short boun
 
 ## Identity
 
-- App ID: `audio.2bit.razorleak`
-- Plugin ID: `audio.2bit.RazorLeak`
+- App ID: `jp.ehl.razorleak`
+- Plugin ID: `jp.ehl.razorleak`
 - AU subtype: `RzLk`
 - State magic/version: `RzL1` / `1`
 - Host parameters: `Slice`, `Leak`, `Time`, `Bias`, `Mix`, `Output`

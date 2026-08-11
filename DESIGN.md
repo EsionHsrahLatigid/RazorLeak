@@ -6,7 +6,7 @@
 - [x] DSP identity is a short bounded circular delay with time-shear read offsets.
 - [x] Edge/highpass detector feeds a clipped feedback leak.
 - [x] Result is glitch smear, not reverb.
-- [x] IDs are unique: app `audio.2bit.razorleak`, plugin `audio.2bit.RazorLeak`, AU subtype `RzLk`.
+- [x] IDs are unique: app `jp.ehl.razorleak`, plugin `jp.ehl.razorleak`, AU subtype `RzLk`.
 - [x] State magic/version are unique: `RzL1` / `1`.
 
 ## Parameters
