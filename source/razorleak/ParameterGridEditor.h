@@ -12,6 +12,17 @@
 namespace razorleak::plugin
 {
 
+} // namespace razorleak::plugin
+
+namespace ehl::ui
+{
+class CommandButton;
+class StripMeter;
+}
+
+namespace razorleak::plugin
+{
+
 class ParameterGridEditor final
     : public yup::AudioProcessorEditor
     , private yup::Timer
@@ -28,6 +39,7 @@ public:
                          , std::atomic<int>& auditionType
 #endif
                          );
+    ~ParameterGridEditor() override;
 
     bool isResizable() const override;
     bool shouldPreserveAspectRatio() const override;
@@ -37,6 +49,7 @@ public:
 
 private:
     void timerCallback() override;
+    void refreshAuditionControls();
 
     yup::String title;
     std::atomic<float>& inputMeterLeft;
@@ -46,10 +59,14 @@ private:
 #if defined(YUP_AUDIO_PLUGIN_ENABLE_STANDALONE)
     std::atomic<bool>& auditionEnabled;
     std::atomic<int>& auditionType;
-    std::unique_ptr<yup::ToggleButton> auditionToggle;
-    std::unique_ptr<yup::ComboBox> auditionSelector;
+    std::unique_ptr<ehl::ui::CommandButton> auditionToggle;
+    std::unique_ptr<ehl::ui::CommandButton> auditionSelector;
 #endif
     std::unique_ptr<yup::Label> titleLabel;
+    std::unique_ptr<yup::Label> inputMeterLabel;
+    std::unique_ptr<yup::Label> outputMeterLabel;
+    std::unique_ptr<ehl::ui::StripMeter> inputMeter;
+    std::unique_ptr<ehl::ui::StripMeter> outputMeter;
     std::vector<yup::AudioParameter::Ptr> parameters;
     std::vector<std::unique_ptr<yup::Label>> labels;
     std::vector<std::unique_ptr<yup::Slider>> sliders;
