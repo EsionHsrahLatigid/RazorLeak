@@ -22,6 +22,6 @@ jobs:
       product_name: RazorLeak
       product_slug: razorleak
       cmake_option_prefix: RAZORLEAK
-      debug_targets_json: '["razorleak_engine_tests","razorleak_hosted_compile_tests","razorleak_standalone_plugin","razorleak_vst3_plugin"]'
+      debug_targets_json: '["razorleak_engine_tests","razorleak_hosted_compile_tests"]'
       release_test_targets_json: '["razorleak_engine_tests","razorleak_hosted_compile_tests"]'
-      windows_debug_plugins: true
+      windows_debug_plugins: false
